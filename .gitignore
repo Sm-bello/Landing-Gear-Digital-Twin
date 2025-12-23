@@ -1,0 +1,10 @@
+# MATLAB generated files
+*.autosave
+*.asv
+*.m~
+*.slx.r*
+*.slxc
+slprj/
+_Associates/
+**/*.bld
+**/*.dmr
