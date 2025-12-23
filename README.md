@@ -13,6 +13,30 @@ By modeling the internal gas thermodynamics and hydraulic damping forces in **Si
 * Hydraulic fluid degradation.
 * Seal friction wear and tear.
 
+graph TD
+    subgraph "Node A: Flight Management System"
+        Python[High_Fidelity_Aircraft.py] -->|Generates Telemetry| UDP_Out[UDP Stream]
+        Python -->|Injects Faults| DB[(PostgreSQL)]
+    end
+
+    subgraph "Node B: Digital Twin Physics"
+        DB -->|Polls Phase Change| MATLAB[AeroTwin_Master_Console.m]
+        MATLAB -->|Updates k/b| Simulink[Fancy_Landing_Gear.slx]
+        Simulink -->|Solves Dynamics| Simscape[3D Multibody Physics]
+    end
+
+    subgraph "Node C: Telemetry Pipeline"
+        UDP_Out -->|Visuals| FlightGear[FlightGear 3D]
+        UDP_Out -->|Metrics| Telegraf[Telegraf Agent]
+        Telegraf -->|Storage| Influx[InfluxDB 3 Core]
+        Influx -->|Dashboard| Grafana[Grafana Monitor]
+    end
+
+    style Python fill:#3776AB,stroke:#fff,color:#fff
+    style MATLAB fill:#e16737,stroke:#fff,color:#fff
+    style Simulink fill:#0076A8,stroke:#fff,color:#fff
+    style Influx fill:#22ADF6,stroke:#fff,color:#fff
+    
 ## 🛠️ Technical Architecture
 
 ### 1. The Physics Model
