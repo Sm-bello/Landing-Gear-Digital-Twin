@@ -1,7 +1,5 @@
-# Landing-Gear-Digital-Twin
-Next-generation predictive maintenance suite. Bridging the gap between physical strut dynamics and digital telemetry to eliminate reactive maintenance in landing gear operations.
 # 🛬 Landing Gear Digital Twin Architecture
-### Physics-Based Predictive Maintenance for Oleo-Pneumatic Struts
+### Next-generation predictive maintenance suite. Bridging the gap between physical strut dynamics and digital telemetry to eliminate reactive maintenance in landing gear operations.
 
 ![MATLAB](https://img.shields.io/badge/MATLAB-R2023a-orange?style=for-the-badge&logo=mathworks)
 ![Simulink](https://img.shields.io/badge/Simulink-Model-blue?style=for-the-badge&logo=mathworks)
